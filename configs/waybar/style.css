@@ -198,6 +198,43 @@ tooltip label {
     transition: all 0.3s ease;
 }
 
+#custom-ai-workload {
+    color: #cba6f7;
+    background: rgba(203, 166, 247, 0.1);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 6px 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#custom-ai-workload.gaming {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+#custom-ai-workload.development {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.2);
+}
+
+#custom-ai-workload.media {
+    color: #fab387;
+    background: rgba(250, 179, 135, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+#custom-ai-workload.productivity {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.2);
+}
+
+#custom-ai-workload.idle {
+    color: #6c7086;
+    background: rgba(108, 112, 134, 0.1);
+}
+
 #custom-gaming-mode.active {
     color: #1e1e2e;
     background: linear-gradient(45deg, #a6e3a1, #94e2d5);
@@ -245,6 +282,48 @@ tooltip label {
 }
 
 /* Right modules */
+#custom-ai-status {
+    color: #cba6f7;
+    background: rgba(203, 166, 247, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#custom-ai-status.active {
+    color: #1e1e2e;
+    background: linear-gradient(45deg, #cba6f7, #f5c2e7);
+    animation: glow 3s ease-in-out infinite;
+}
+
+#custom-ai-status.error {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.2);
+    animation: blink 1s linear infinite;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(203, 166, 247, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(203, 166, 247, 0.8); }
+}
+
+#custom-workspace-overview {
+    color: #74c7ec;
+    background: rgba(116, 199, 236, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#custom-workspace-overview:hover {
+    background: rgba(116, 199, 236, 0.2);
+    transform: scale(1.05);
+}
+
 #custom-system-health {
     color: #a6e3a1;
     background: rgba(166, 227, 161, 0.1);

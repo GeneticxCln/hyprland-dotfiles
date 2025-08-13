@@ -13,6 +13,7 @@
         "custom/launcher",
         "hyprland/workspaces",
         "hyprland/window",
+        "custom/ai-workload",
         "custom/gaming-mode",
         "custom/vpn-status"
     ],
@@ -21,6 +22,8 @@
         "custom/weather"
     ],
     "modules-right": [
+        "custom/ai-status",
+        "custom/workspace-overview",
         "custom/system-health",
         "custom/audio-profile",
         "custom/theme-switcher",
@@ -80,6 +83,15 @@
         "on-click-right": "~/hyprland-project/scripts/gaming/gaming-mode.sh status"
     },
 
+    "custom/ai-workload": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/ai-workload.sh",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "~/hyprland-project/scripts/ai/workload-automation.sh dashboard",
+        "on-click-right": "~/hyprland-project/scripts/ai/workload-automation.sh apply"
+    },
+
     "custom/vpn-status": {
         "format": "{}",
         "exec": "~/.config/hypr/scripts/waybar/vpn-status.sh",
@@ -106,6 +118,24 @@
     },
 
     // Right modules
+    "custom/ai-status": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/ai-status.sh",
+        "interval": 10,
+        "tooltip": true,
+        "on-click": "~/hyprland-project/scripts/ai/ai-manager.sh dashboard",
+        "on-click-right": "~/hyprland-project/scripts/ai/ai-manager.sh optimize"
+    },
+
+    "custom/workspace-overview": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/workspace-overview.sh",
+        "interval": 2,
+        "tooltip": true,
+        "on-click": "quickshell -c ~/.config/quickshell/components/WorkspaceDetection.qml",
+        "on-click-right": "hyprctl dispatch workspace empty"
+    },
+
     "custom/system-health": {
         "format": "{}",
         "exec": "~/.config/hypr/scripts/waybar/system-health.sh",

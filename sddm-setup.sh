@@ -141,7 +141,7 @@ customize_simple2_theme() {
     
     THEME_DIR="/usr/share/sddm/themes/simple2"
     
-    # Create custom theme configuration
+# Create custom theme configuration
     cat > /tmp/theme.conf << 'EOF'
 [General]
 # Background configuration
@@ -149,54 +149,94 @@ background=background.jpg
 backgroundMode=fill
 backgroundFillMode=PreserveAspectCrop
 
-# Font configuration
+# Font configuration - Enhanced with AI branding
 font="JetBrains Mono"
 fontSize=12
-fontColor=#ffffff
+fontColor=#cdd6f4
+headerFont="JetBrains Mono"
+headerFontSize=16
+headerFontColor=#89b4fa
 
-# Input field styling
-inputBackground=#1e1e2e
+# Input field styling - Modern glassmorphism
+inputBackground=rgba(30, 30, 46, 0.8)
 inputBorderColor=#89b4fa
 inputTextColor=#cdd6f4
 inputFont="JetBrains Mono"
 inputFontSize=14
+inputBorderRadius=12
+inputPadding=12
 
-# Button styling  
-buttonBackground=#89b4fa
+# Button styling - AI-inspired gradient
+buttonBackground=linear-gradient(45deg, #89b4fa, #cba6f7)
+buttonHoverBackground=linear-gradient(45deg, #74c7ec, #b4befe)
 buttonTextColor=#11111b
 buttonFont="JetBrains Mono"
 buttonFontSize=12
+buttonBorderRadius=10
+buttonPadding=10
 
-# Colors (Catppuccin Mocha inspired)
+# Colors (Enhanced Catppuccin Mocha with AI accents)
 primary=#89b4fa
-secondary=#f38ba8
+secondary=#cba6f7
 accent=#94e2d5
 background=#1e1e2e
 foreground=#cdd6f4
+warning=#f9e2af
+error=#f38ba8
+success=#a6e3a1
 
-# Layout
+# AI System Integration
+aiIndicator=true
+aiIndicatorColor=#cba6f7
+aiIndicatorText="🤖 AI-Enhanced"
+aiSystemName="Hyprland AI Desktop"
+
+# Layout - Enhanced with AI elements
 showUserRealName=true
 showLoginButton=true
 showUserList=true
 userListMaximumUsers=10
+showAiIndicator=true
+showSystemInfo=true
 
 # Behavior
 allowEmptyPassword=false
 rememberLastUser=true
 rememberLastSession=true
+autoLogin=false
+autoLoginUser=
 
 # Session configuration
 defaultSession=hyprland
 hideSessionButton=false
 hideUserButton=false
+sessionButtonText="Session"
 
-# Clock
+# Clock - Enhanced formatting
 showClock=true
-clockFormat="dddd, MMMM d, yyyy - hh:mm AP"
+clockFormat="dddd, MMMM d, yyyy\nhh:mm AP"
+clockColor=#cdd6f4
+clockFont="JetBrains Mono"
+clockFontSize=14
 
-# Blur effect
+# Advanced visual effects
 blur=true
-blurRadius=50
+blurRadius=60
+glassmorphism=true
+animations=true
+fadeIn=true
+scaleTransition=true
+
+# Accessibility
+highContrast=false
+largeFonts=false
+screenReader=false
+
+# Branding
+showLogo=true
+logoText="AI Desktop Environment"
+logoSubtext="Powered by Hyprland + AI"
+logoColor=#89b4fa
 EOF
     
     sudo cp /tmp/theme.conf "$THEME_DIR/"
