@@ -131,7 +131,7 @@ detect_workload() {
     
     # Get current system metrics
     local cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | awk -F'%' '{print int($1)}')
-    local memory_usage=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100.0}')
+    local memory_usage=$(free | grep Mem | awk '{print int($3/$2 * 100)}')
     local gpu_usage=0
     
     # Try to get GPU usage
@@ -244,7 +244,21 @@ detect_workload() {
     fi
     
     # Return results
-    echo "{\"workload\": \"$best_workload\", \"confidence\": $confidence, \"score\": $best_score, \"metrics\": {\"cpu\": $cpu_usage, \"gpu\": $gpu_usage, \"memory\": $memory_usage, \"windows\": $window_count, \"fullscreen\": $fullscreen_active, \"audio\": $audio_active}}"
+    cat << EOF
+{
+    "workload": "$best_workload",
+    "confidence": $confidence,
+    "score": $best_score,
+    "metrics": {
+        "cpu": $cpu_usage,
+        "gpu": $gpu_usage,
+        "memory": $memory_usage,
+        "windows": $window_count,
+        "fullscreen": $fullscreen_active,
+        "audio": $audio_active
+    }
+}
+EOF
 }
 
 # Apply workload optimization profile
