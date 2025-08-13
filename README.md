@@ -1,26 +1,27 @@
-# 🌟 Next-Generation Hyprland Desktop Environment
+# 🌟 Professional Hyprland Desktop Environment
 
-**The most advanced Hyprland setup available** - featuring **20 complete theme families**, **AI-powered automation**, **modern Quickshell architecture**, and **professional-grade tooling**. Built from the ground up to surpass existing solutions with cutting-edge features and superior user experience.
+**A comprehensive, feature-rich Hyprland desktop setup** featuring **20 beautifully crafted themes**, **intelligent automation**, **modern Quickshell integration**, and **professional-grade tooling**. Designed for users who want a complete, polished desktop experience out of the box.
 
-## 🆚 **Why Choose This Over Ja-KooLit & Others?**
+## 🎯 **Project Highlights**
 
-### 🎨 **20 Complete Theme Families** (Not just colors - full ecosystems!)
-- **Ja-KooLit**: Basic theming • **Us**: 20 coordinated theme families
-- **Others**: 1-3 themes • **Us**: Professional theme collection
+### 🎨 **Complete Theme Ecosystem**
+Each theme includes coordinated wallpapers, UI elements, terminal colors, and application styling for a cohesive desktop experience.
 
-### 🤖 **AI-Powered Desktop Automation**
-- **Ja-KooLit**: Manual configuration • **Us**: Smart optimization & predictive maintenance
-- **Others**: Traditional setup • **Us**: Your desktop learns and adapts
+### 🚀 **Modern Technology Stack**
+- **Quickshell** - Qt-based desktop shell for superior performance
+- **Wayland-native** - Built for the future of Linux graphics
+- **Smart Integration** - Seamless component coordination
 
-### 🚀 **Modern Architecture** 
-- **Ja-KooLit**: AGS (GTK-based) • **Us**: Quickshell (Qt-based) - superior performance
-- **Others**: Outdated components • **Us**: Latest technologies
+### 🖼️ **Intelligent Wallpaper System**
+- **13+ curated wallpapers** perfectly matched to themes
+- **Smart wallpaper management** with automatic theme coordination
+- **Multiple format support** (jpg, png, webp) with fallback system
 
-### 🎮 **Advanced Feature Suite**
-- **Gaming Mode**: Performance optimization, GPU profiles, background management
-- **Mobile Sync**: Cross-platform notifications, shared clipboard, file sync
-- **Security Suite**: Automated threat detection, privacy protection
-- **Smart Automation**: Workload management, system maintenance
+### 🛠️ **Advanced Features**
+- **AI-powered optimization** - Smart system tuning and maintenance
+- **Gaming mode** - Performance optimization for gaming sessions
+- **Mobile integration** - Cross-platform synchronization capabilities
+- **Security suite** - Enhanced privacy and system protection
 
 ## ✨ Features
 
@@ -57,9 +58,9 @@
 ## 🚀 Quick Start
 
 ```bash
-# Clone or download the repository
-git clone https://github.com/yourusername/hyprland-project.git
-cd hyprland-project
+# Clone the repository
+git clone https://github.com/GeneticxCln/hyprland-dotfiles.git
+cd hyprland-dotfiles
 
 # Quick setup (minimal installation)
 chmod +x setup.sh
@@ -68,7 +69,27 @@ chmod +x setup.sh
 # OR Full installation with all features
 chmod +x install.sh
 ./install.sh
+
+# OR Modular installation (choose components)
+chmod +x modular-install.sh
+./modular-install.sh
 ```
+
+### **Installation Options**
+
+#### **Standard Installation** (`./install.sh`)
+Complete installation with interactive theme selection and feature configuration.
+
+#### **Minimal Setup** (`./setup.sh`)
+Core components only - perfect for lightweight installations.
+
+#### **Modular Installation** (`./modular-install.sh`)
+Choose exactly what to install:
+- Individual theme families
+- Specific desktop components
+- Advanced features (AI tools, gaming mode, mobile sync)
+- Application suites (development, media, productivity)
+- System integrations (NVIDIA, SDDM, GTK themes)
 
 ## What Gets Installed
 
@@ -104,10 +125,34 @@ After installation, configure your dotfiles in:
 ~/.config/kitty/         # Terminal configuration
 ```
 
+## 🖼️ Wallpaper System
+
+### **Intelligent Theme Coordination**
+Each theme automatically applies a carefully selected wallpaper that complements its color scheme and aesthetic:
+
+- **Nord** → Northern Lights (Aurora Borealis scenes)
+- **Everforest** → Misty forest landscapes  
+- **TokyoNight** → Anime city nightscapes
+- **Catppuccin** → Cozy coffee shop and anime room scenes
+- **Rose Pine** → Soft aesthetic nature scenes
+- **Dracula** → Dark, mysterious landscapes
+
+### **Wallpaper Management**
+```bash
+# View wallpaper assignments
+./wallpaper-manager.sh
+
+# Import additional wallpapers
+./import-wallpapers.sh
+```
+
+### **Automatic Wallpaper Switching**
+Wallpapers change automatically when switching themes, with smooth transitions using `swww`.
+
 ## Usage
 
 ### Theme Switcher
-Easily switch between all 20 themes:
+Easily switch between all 20 themes with coordinated wallpapers:
 ```bash
 ./theme-switcher.sh
 ```
@@ -115,7 +160,14 @@ Easily switch between all 20 themes:
 Or apply a theme directly:
 ```bash
 ./theme-switcher.sh catppuccin-mocha
-./theme-switcher.sh 1  # Apply by number
+./theme-switcher.sh nord  # Apply by name
+```
+
+### Theme Demo Mode
+Record or preview all themes with smooth transitions:
+```bash
+./demo-themes.sh          # Interactive mode
+./demo-themes.sh record   # Recording mode for videos
 ```
 
 ### Configuration Verification
