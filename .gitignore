@@ -79,3 +79,14 @@ user-overrides/
 # Runtime generated files
 *.pid
 *.sock
+
+# Lazy UI AI Optimization System
+ai_optimization/venv/
+ai_optimization/logs/
+ai_optimization/models/
+ai_optimization/adaptive_data/
+ai_optimization/healing_data/
+ai_optimization/config/settings.json
+*.db
+*.pth
+*.pkl
