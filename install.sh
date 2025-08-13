@@ -122,14 +122,28 @@ select_theme() {
     done
     echo
     
+    # Display themes in organized groups
+    echo -e "${PURPLE}Catppuccin Themes:${NC}"
+    echo "  1. Catppuccin Mocha     5. TokyoNight Night     9. Gruvbox Dark"
+    echo "  2. Catppuccin Macchiato 6. TokyoNight Storm    10. Gruvbox Light"
+    echo "  3. Catppuccin Latte     7. TokyoNight Day      11. Nord"
+    echo "  4. Catppuccin Frappe    8. Nord Light          12. Rose Pine"
+    echo
+    echo -e "${CYAN}Additional Themes:${NC}"
+    echo " 13. Rose Pine Moon      17. Solarized Dark"
+    echo " 14. Rose Pine Dawn      18. Solarized Light"
+    echo " 15. Dracula             19. Everforest Dark"
+    echo " 16. Monokai Pro         20. Everforest Light"
+    echo
+    
     while true; do
-        read -p "Select theme (1-6): " choice
+        read -p "Select theme (1-20): " choice
         if [[ -n "${THEMES[$choice]}" ]]; then
             THEME_CHOICE="${THEMES[$choice]}"
             success "Selected theme: $THEME_CHOICE"
             break
         else
-            warning "Invalid selection. Please choose 1-6."
+            warning "Invalid selection. Please choose 1-20."
         fi
     done
 }
@@ -147,8 +161,12 @@ select_options() {
     echo "  3. Media Applications (MPV, Image viewers, Audio tools)"
     echo "  4. Gaming Setup (Steam, Lutris, gaming utilities)"
     echo "  5. Productivity Suite (LibreOffice, PDF tools, etc.)"
+    echo "  6. NVIDIA Integration & Display Scaling"
+    echo "  7. SDDM Simple2 Theme Setup"
+    echo "  8. Advanced Configuration (Keybinds, Window Rules, Rainbow Effects)"
     echo
     
+    # Additional apps selection
     read -p "Install additional applications? (y/N): " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -157,6 +175,39 @@ select_options() {
     else
         INSTALL_APPS="no"
         echo "Core system only"
+    fi
+    
+    # NVIDIA integration
+    echo
+    read -p "Setup NVIDIA integration and display scaling? (y/N): " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        INSTALL_NVIDIA="yes"
+        success "NVIDIA integration will be configured"
+    else
+        INSTALL_NVIDIA="no"
+    fi
+    
+    # SDDM setup
+    echo
+    read -p "Install SDDM Simple2 theme? (y/N): " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        INSTALL_SDDM="yes"
+        success "SDDM Simple2 theme will be installed"
+    else
+        INSTALL_SDDM="no"
+    fi
+    
+    # Advanced configuration
+    echo
+    read -p "Install advanced configuration (keybinds, window rules, rainbow effects)? (y/N): " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        INSTALL_ADVANCED="yes"
+        success "Advanced configuration will be installed"
+    else
+        INSTALL_ADVANCED="no"
     fi
 }
 
@@ -370,17 +421,62 @@ deploy_theme_configs() {
         "Catppuccin-Macchiato")
             deploy_catppuccin_macchiato
             ;;
-        "TokyoNight")
-            deploy_tokyonight
+        "Catppuccin-Latte")
+            deploy_catppuccin_latte
             ;;
-        "Gruvbox")
-            deploy_gruvbox
+        "Catppuccin-Frappe")
+            deploy_catppuccin_frappe
+            ;;
+        "TokyoNight-Night")
+            deploy_tokyonight_night
+            ;;
+        "TokyoNight-Storm")
+            deploy_tokyonight_storm
+            ;;
+        "TokyoNight-Day")
+            deploy_tokyonight_day
+            ;;
+        "Gruvbox-Dark")
+            deploy_gruvbox_dark
+            ;;
+        "Gruvbox-Light")
+            deploy_gruvbox_light
             ;;
         "Nord")
             deploy_nord
             ;;
+        "Nord-Light")
+            deploy_nord_light
+            ;;
         "Rose-Pine")
             deploy_rosepine
+            ;;
+        "Rose-Pine-Moon")
+            deploy_rosepine_moon
+            ;;
+        "Rose-Pine-Dawn")
+            deploy_rosepine_dawn
+            ;;
+        "Dracula")
+            deploy_dracula
+            ;;
+        "Monokai-Pro")
+            deploy_monokai_pro
+            ;;
+        "Solarized-Dark")
+            deploy_solarized_dark
+            ;;
+        "Solarized-Light")
+            deploy_solarized_light
+            ;;
+        "Everforest-Dark")
+            deploy_everforest_dark
+            ;;
+        "Everforest-Light")
+            deploy_everforest_light
+            ;;
+        *)
+            error "Unknown theme: $THEME_CHOICE"
             ;;
     esac
     
@@ -522,6 +618,342 @@ deploy_rosepine() {
     download_wallpapers_rosepine
 }
 
+# Catppuccin Latte theme (Light)
+deploy_catppuccin_latte() {
+    local bg="#eff1f5"
+    local surface0="#ccd0da"
+    local surface1="#bcc0cc"
+    local text="#4c4f69"
+    local accent="#8839ef"
+    local accent2="#1e66f5"
+    local red="#d20f39"
+    local green="#40a02b"
+    local yellow="#df8e1d"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "latte" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "latte" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "latte" "$bg" "$text" "$accent"
+    create_kitty_config "latte"
+    create_dunst_config "latte" "$bg" "$text" "$accent2"
+    download_wallpapers_catppuccin "latte"
+}
+
+# Catppuccin Frappe theme
+deploy_catppuccin_frappe() {
+    local bg="#303446"
+    local surface0="#414559"
+    local surface1="#51576d"
+    local text="#c6d0f5"
+    local accent="#ca9ee6"
+    local accent2="#8caaee"
+    local red="#e78284"
+    local green="#a6d189"
+    local yellow="#e5c890"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "frappe" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "frappe" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "frappe" "$bg" "$text" "$accent"
+    create_kitty_config "frappe"
+    create_dunst_config "frappe" "$bg" "$text" "$accent2"
+    download_wallpapers_catppuccin "frappe"
+}
+
+# TokyoNight Night theme
+deploy_tokyonight_night() {
+    local bg="#1a1b26"
+    local surface0="#24283b"
+    local surface1="#414868"
+    local text="#c0caf5"
+    local accent="#7aa2f7"
+    local accent2="#bb9af7"
+    local red="#f7768e"
+    local green="#9ece6a"
+    local yellow="#e0af68"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "tokyonight-night" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "tokyonight-night" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "tokyonight-night" "$bg" "$text" "$accent"
+    create_kitty_config "tokyonight-night"
+    create_dunst_config "tokyonight-night" "$bg" "$text" "$accent"
+    download_wallpapers_tokyonight_night
+}
+
+# TokyoNight Storm theme
+deploy_tokyonight_storm() {
+    local bg="#24283b"
+    local surface0="#1f2335"
+    local surface1="#414868"
+    local text="#c0caf5"
+    local accent="#7aa2f7"
+    local accent2="#7dcfff"
+    local red="#f7768e"
+    local green="#73daca"
+    local yellow="#e0af68"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "tokyonight-storm" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "tokyonight-storm" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "tokyonight-storm" "$bg" "$text" "$accent"
+    create_kitty_config "tokyonight-storm"
+    create_dunst_config "tokyonight-storm" "$bg" "$text" "$accent2"
+    download_wallpapers_tokyonight_storm
+}
+
+# TokyoNight Day theme (Light)
+deploy_tokyonight_day() {
+    local bg="#e1e2e7"
+    local surface0="#e9e9ed"
+    local surface1="#dcd6d6"
+    local text="#3760bf"
+    local accent="#2e7de9"
+    local accent2="#587539"
+    local red="#f52a65"
+    local green="#587539"
+    local yellow="#8c6c3e"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "tokyonight-day" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "tokyonight-day" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "tokyonight-day" "$bg" "$text" "$accent"
+    create_kitty_config "tokyonight-day"
+    create_dunst_config "tokyonight-day" "$bg" "$text" "$accent2"
+    download_wallpapers_tokyonight_day
+}
+
+# Gruvbox Dark theme
+deploy_gruvbox_dark() {
+    local bg="#282828"
+    local surface0="#3c3836"
+    local surface1="#504945"
+    local text="#ebdbb2"
+    local accent="#d79921"
+    local accent2="#458588"
+    local red="#cc241d"
+    local green="#98971a"
+    local yellow="#d79921"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "gruvbox-dark" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "gruvbox-dark" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "gruvbox-dark" "$bg" "$text" "$accent"
+    create_kitty_config "gruvbox-dark"
+    create_dunst_config "gruvbox-dark" "$bg" "$text" "$accent2"
+    download_wallpapers_gruvbox_dark
+}
+
+# Gruvbox Light theme
+deploy_gruvbox_light() {
+    local bg="#fbf1c7"
+    local surface0="#ebdbb2"
+    local surface1="#d5c4a1"
+    local text="#3c3836"
+    local accent="#b57614"
+    local accent2="#076678"
+    local red="#cc241d"
+    local green="#98971a"
+    local yellow="#d79921"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "gruvbox-light" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "gruvbox-light" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "gruvbox-light" "$bg" "$text" "$accent"
+    create_kitty_config "gruvbox-light"
+    create_dunst_config "gruvbox-light" "$bg" "$text" "$accent2"
+    download_wallpapers_gruvbox_light
+}
+
+# Nord Light theme
+deploy_nord_light() {
+    local bg="#eceff4"
+    local surface0="#e5e9f0"
+    local surface1="#d8dee9"
+    local text="#2e3440"
+    local accent="#5e81ac"
+    local accent2="#81a1c1"
+    local red="#bf616a"
+    local green="#a3be8c"
+    local yellow="#ebcb8b"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "nord-light" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "nord-light" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "nord-light" "$bg" "$text" "$accent"
+    create_kitty_config "nord-light"
+    create_dunst_config "nord-light" "$bg" "$text" "$accent"
+    download_wallpapers_nord_light
+}
+
+# Rose Pine Moon theme
+deploy_rosepine_moon() {
+    local bg="#232136"
+    local surface0="#2a273f"
+    local surface1="#393552"
+    local text="#e0def4"
+    local accent="#ea9a97"
+    local accent2="#c4a7e7"
+    local red="#eb6f92"
+    local green="#3e8fb0"
+    local yellow="#f6c177"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "rosepine-moon" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "rosepine-moon" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "rosepine-moon" "$bg" "$text" "$accent"
+    create_kitty_config "rosepine-moon"
+    create_dunst_config "rosepine-moon" "$bg" "$text" "$accent2"
+    download_wallpapers_rosepine_moon
+}
+
+# Rose Pine Dawn theme (Light)
+deploy_rosepine_dawn() {
+    local bg="#faf4ed"
+    local surface0="#f2e9de"
+    local surface1="#ede4d3"
+    local text="#575279"
+    local accent="#d7827e"
+    local accent2="#907aa9"
+    local red="#b4637a"
+    local green="#56949f"
+    local yellow="#ea9d34"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "rosepine-dawn" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "rosepine-dawn" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "rosepine-dawn" "$bg" "$text" "$accent"
+    create_kitty_config "rosepine-dawn"
+    create_dunst_config "rosepine-dawn" "$bg" "$text" "$accent2"
+    download_wallpapers_rosepine_dawn
+}
+
+# Dracula theme
+deploy_dracula() {
+    local bg="#282a36"
+    local surface0="#44475a"
+    local surface1="#6272a4"
+    local text="#f8f8f2"
+    local accent="#bd93f9"
+    local accent2="#8be9fd"
+    local red="#ff5555"
+    local green="#50fa7b"
+    local yellow="#f1fa8c"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "dracula" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "dracula" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "dracula" "$bg" "$text" "$accent"
+    create_kitty_config "dracula"
+    create_dunst_config "dracula" "$bg" "$text" "$accent2"
+    download_wallpapers_dracula
+}
+
+# Monokai Pro theme
+deploy_monokai_pro() {
+    local bg="#2d2a2e"
+    local surface0="#403e41"
+    local surface1="#5b595c"
+    local text="#fcfcfa"
+    local accent="#ab9df2"
+    local accent2="#78dce8"
+    local red="#ff6188"
+    local green="#a9dc76"
+    local yellow="#ffd866"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "monokai-pro" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "monokai-pro" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "monokai-pro" "$bg" "$text" "$accent"
+    create_kitty_config "monokai-pro"
+    create_dunst_config "monokai-pro" "$bg" "$text" "$accent2"
+    download_wallpapers_monokai_pro
+}
+
+# Solarized Dark theme
+deploy_solarized_dark() {
+    local bg="#002b36"
+    local surface0="#073642"
+    local surface1="#586e75"
+    local text="#839496"
+    local accent="#268bd2"
+    local accent2="#2aa198"
+    local red="#dc322f"
+    local green="#859900"
+    local yellow="#b58900"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "solarized-dark" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "solarized-dark" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "solarized-dark" "$bg" "$text" "$accent"
+    create_kitty_config "solarized-dark"
+    create_dunst_config "solarized-dark" "$bg" "$text" "$accent2"
+    download_wallpapers_solarized_dark
+}
+
+# Solarized Light theme
+deploy_solarized_light() {
+    local bg="#fdf6e3"
+    local surface0="#eee8d5"
+    local surface1="#93a1a1"
+    local text="#657b83"
+    local accent="#268bd2"
+    local accent2="#2aa198"
+    local red="#dc322f"
+    local green="#859900"
+    local yellow="#b58900"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "solarized-light" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "solarized-light" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "solarized-light" "$bg" "$text" "$accent"
+    create_kitty_config "solarized-light"
+    create_dunst_config "solarized-light" "$bg" "$text" "$accent2"
+    download_wallpapers_solarized_light
+}
+
+# Everforest Dark theme
+deploy_everforest_dark() {
+    local bg="#2d353b"
+    local surface0="#343f44"
+    local surface1="#475258"
+    local text="#d3c6aa"
+    local accent="#a7c080"
+    local accent2="#83c092"
+    local red="#e67e80"
+    local green="#a7c080"
+    local yellow="#dbbc7f"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "everforest-dark" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "everforest-dark" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "everforest-dark" "$bg" "$text" "$accent"
+    create_kitty_config "everforest-dark"
+    create_dunst_config "everforest-dark" "$bg" "$text" "$accent2"
+    download_wallpapers_everforest_dark
+}
+
+# Everforest Light theme
+deploy_everforest_light() {
+    local bg="#fdf6e3"
+    local surface0="#f3efda"
+    local surface1="#edeada"
+    local text="#5c6a72"
+    local accent="#8da101"
+    local accent2="#35a77c"
+    local red="#f85552"
+    local green="#8da101"
+    local yellow="#dfa000"
+    
+    create_hyprland_config "$bg" "$surface0" "$accent" "$accent2" "$text"
+    create_waybar_config "everforest-light" "$bg" "$surface0" "$text" "$accent"
+    create_quickshell_config "everforest-light" "$bg" "$surface0" "$text" "$accent"
+    create_rofi_config "everforest-light" "$bg" "$text" "$accent"
+    create_kitty_config "everforest-light"
+    create_dunst_config "everforest-light" "$bg" "$text" "$accent2"
+    download_wallpapers_everforest_light
+}
+
 # Source configuration functions
 source "$SCRIPT_DIR/configs.sh" 2>/dev/null || true
 source "$SCRIPT_DIR/theme-configs.sh" 2>/dev/null || {
@@ -649,6 +1081,37 @@ main() {
     create_directories
     deploy_theme_configs
     enable_services
+    
+    # Run NVIDIA integration if selected
+    if [ "$INSTALL_NVIDIA" = "yes" ]; then
+        log "Running NVIDIA integration setup..."
+        if [ -f "$SCRIPT_DIR/nvidia-integration.sh" ]; then
+            bash "$SCRIPT_DIR/nvidia-integration.sh"
+        else
+            warning "nvidia-integration.sh not found, skipping NVIDIA setup"
+        fi
+    fi
+    
+    # Run SDDM setup if selected
+    if [ "$INSTALL_SDDM" = "yes" ]; then
+        log "Running SDDM Simple2 theme setup..."
+        if [ -f "$SCRIPT_DIR/sddm-setup.sh" ]; then
+            bash "$SCRIPT_DIR/sddm-setup.sh"
+        else
+            warning "sddm-setup.sh not found, skipping SDDM setup"
+        fi
+    fi
+    
+    # Run advanced configuration if selected
+    if [ "$INSTALL_ADVANCED" = "yes" ]; then
+        log "Running advanced configuration setup..."
+        if [ -f "$SCRIPT_DIR/advanced-config.sh" ]; then
+            bash "$SCRIPT_DIR/advanced-config.sh"
+        else
+            warning "advanced-config.sh not found, skipping advanced configuration"
+        fi
+    fi
+    
     final_setup
     
     # Success message

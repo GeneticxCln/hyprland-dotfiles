@@ -1,16 +1,19 @@
 # 🌟 Hyprland Dotfiles - Complete Desktop Environment
 
-A comprehensive, interactive installation script for **Hyprland** on **Arch Linux** featuring **6 complete themes**, full desktop environment setup, and extensive customization options. Built to rival JaKooLit's dotfiles with professional quality and attention to detail.
+A comprehensive, interactive installation script for **Hyprland** on **Arch Linux** featuring **20 complete themes**, NVIDIA integration, SDDM Simple2 theme, display scaling support, and extensive customization options. Built to rival JaKooLit's dotfiles with professional quality and attention to detail.
 
 ## ✨ Features
 
-### 🎨 **6 COMPLETE Themes** (Not just colors - full configurations!)
-- **🟣 Catppuccin Mocha** - Dark purple elegance with full config suite
-- **🔵 Catppuccin Macchiato** - Warm blue comfort with coordinated styling
-- **🌃 TokyoNight** - Cyberpunk vibes with neon accents
-- **🟡 Gruvbox** - Retro warm colors with vintage appeal
-- **🔷 Nord** - Arctic frost theme with cool blues
-- **🌹 Rose Pine** - Soft rose aesthetic with elegant pastels
+### 🎨 **20 COMPLETE Themes** (Not just colors - full configurations!)
+- **🟣 Catppuccin Family** - Mocha, Macchiato, Latte, Frappe variants
+- **🌃 TokyoNight Family** - Night, Storm, Day variants
+- **🟡 Gruvbox Family** - Dark and Light variants
+- **🔷 Nord Family** - Classic Nord and Light variants
+- **🌹 Rose Pine Family** - Rose Pine, Moon, Dawn variants
+- **🧛 Dracula** - The classic dark vampire theme
+- **🎨 Monokai Pro** - Modern developer favorite
+- **☀️ Solarized** - Dark and Light scientific color schemes
+- **🌲 Everforest** - Dark and Light nature-inspired themes
 
 ### 🖥️ **Complete Desktop Stack**
 - 🚀 **Hyprland** - Modern Wayland compositor with advanced features
@@ -27,6 +30,9 @@ A comprehensive, interactive installation script for **Hyprland** on **Arch Linu
 - ✅ **Automatic Service Management** - System integration
 - ✅ **Smart Package Detection** - AUR helper auto-installation
 - ✅ **Error Recovery** - Robust installation process
+- 🖥️ **NVIDIA Integration** - Complete NVIDIA driver setup and optimization
+- 🎨 **SDDM Simple2 Theme** - Beautiful login manager with Hyprland integration
+- 💻 **Multi-Resolution Support** - FHD, 2K, 4K display scaling
 
 ## 🚀 Quick Start
 
@@ -72,16 +78,36 @@ After installation, configure your dotfiles in:
 
 ## Usage
 
+### Standard Installation
 1. **Run the installation**:
    ```bash
-   ./hyprland-setup.sh
+   ./install.sh
    ```
 
-2. **Reboot your system**
+2. **Follow the interactive setup** - Select theme, apps, and additional features
 
-3. **Select Hyprland** from your display manager (SDDM/GDM)
+3. **Reboot your system**
 
-4. **Configure your dotfiles** in `~/.config/`
+4. **Select Hyprland** from your display manager
+
+### NVIDIA Users
+1. **Run the main installer** and select NVIDIA integration when prompted, OR
+2. **Run NVIDIA setup separately**:
+   ```bash
+   ./nvidia-integration.sh
+   ```
+
+3. **Configure your display resolution** and scaling during setup
+4. **Reboot after installation** to load NVIDIA drivers
+
+### SDDM Simple2 Theme
+1. **Run during main installation** by selecting SDDM option, OR
+2. **Install separately**:
+   ```bash
+   ./sddm-setup.sh
+   ```
+
+3. **Reboot to see the new login screen**
 
 ## Requirements
 
