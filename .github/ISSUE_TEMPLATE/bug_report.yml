@@ -1,0 +1,136 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees:
+  - yourusername
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! 
+        Please provide as much detail as possible to help us resolve this issue quickly.
+
+  - type: input
+    id: system-info
+    attributes:
+      label: System Information
+      description: Your operating system and version
+      placeholder: "e.g., CachyOS Linux, EndeavourOS, Manjaro 21.3"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: installation-method
+    attributes:
+      label: Installation Method
+      description: How did you install the setup?
+      options:
+        - Standard Installation (./install.sh)
+        - Modular Installation (./modular-install.sh)
+        - Minimal Setup (./setup.sh)
+        - Manual Installation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: theme-used
+    attributes:
+      label: Active Theme
+      description: Which theme were you using when the bug occurred?
+      options:
+        - Catppuccin Mocha
+        - Catppuccin Macchiato
+        - Catppuccin Latte
+        - Catppuccin Frappe
+        - TokyoNight Night
+        - TokyoNight Storm
+        - TokyoNight Day
+        - Gruvbox Dark
+        - Gruvbox Light
+        - Nord
+        - Nord Light
+        - Rose Pine
+        - Rose Pine Moon
+        - Rose Pine Dawn
+        - Dracula
+        - Monokai Pro
+        - Solarized Dark
+        - Solarized Light
+        - Everforest Dark
+        - Everforest Light
+        - Not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug in detail
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen instead?
+      placeholder: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: |
+        Please copy and paste any relevant log output. Check these locations:
+        - Installation logs: `./Install-Logs/`
+        - Hyprland logs: `journalctl -b --user -u hyprland`
+        - System logs: `journalctl -b`
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: components-affected
+    attributes:
+      label: Components Affected
+      description: Which components are experiencing issues?
+      options:
+        - label: Hyprland (window manager)
+        - label: Waybar (status bar)
+        - label: Quickshell (desktop shell)
+        - label: Rofi (application launcher)
+        - label: Theme switching
+        - label: Wallpapers
+        - label: NVIDIA integration
+        - label: SDDM theme
+        - label: AI features
+        - label: Gaming mode
+        - label: Mobile sync
+        - label: Installation process
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

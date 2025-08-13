@@ -1,0 +1,102 @@
+name: 💡 Feature Request
+description: Suggest a new feature or enhancement
+title: "[FEATURE] "
+labels: ["enhancement", "needs-discussion"]
+assignees:
+  - yourusername
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! 
+        Your ideas help make this project better for everyone.
+
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: Feature Category
+      description: What category does this feature belong to?
+      options:
+        - Themes & Customization
+        - AI & Automation
+        - Gaming & Performance
+        - Mobile Integration
+        - Security & Privacy
+        - Installation & Setup
+        - Desktop Components
+        - Developer Tools
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: Describe the feature you'd like to see
+      placeholder: What would you like to be added?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-solving
+    attributes:
+      label: Problem Solving
+      description: What problem would this feature solve?
+      placeholder: What issue or limitation does this address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How do you envision this feature working?
+      placeholder: Describe your ideal implementation
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other solutions have you considered?
+      placeholder: Are there alternative approaches?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - Low - Nice to have
+        - Medium - Would be helpful
+        - High - Important for workflow
+        - Critical - Blocking current use
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: implementation
+    attributes:
+      label: Implementation Help
+      description: Are you willing to help implement this feature?
+      options:
+        - label: I can help with design/specification
+        - label: I can help with coding/implementation
+        - label: I can help with testing
+        - label: I can help with documentation
+        - label: I'm available for consultation
+        - label: I prefer to just suggest the idea
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or examples
+      placeholder: Any additional information that would help?
+    validations:
+      required: false
