@@ -1,0 +1,81 @@
+# Hyprland Dotfiles - Gitignore
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Backup files
+*.bak
+*.backup
+*~
+.backup/
+backups/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-*
+.atom/
+
+# OS generated files
+.directory
+.Trash-*
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+
+# Package manager files
+node_modules/
+*.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Local environment
+.env
+.env.local
+
+# Build outputs
+build/
+dist/
+*.egg-info/
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+
+# Documentation builds
+docs/_build/
+
+# Wallpaper test files
+*.test.jpg
+*.test.png
+
+# Local script variations
+install-local.sh
+test-*.sh
+
+# User-specific config overrides
+local-config/
+user-overrides/
+
+# Runtime generated files
+*.pid
+*.sock
