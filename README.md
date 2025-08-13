@@ -31,8 +31,8 @@ Lazy UI transforms your Hyprland setup from a manual configuration nightmare int
 
 ```bash
 # Clone the repository
-git clone https://github.com/GeneticxCln/hyprland-dotfiles.git
-cd hyprland-dotfiles
+git clone https://github.com/GeneticxCln/Lazy-UI.git
+cd Lazy-UI
 
 # Install and start the AI system
 cd ai_optimization
@@ -46,7 +46,7 @@ python3 install.py
 ## 📁 Project Structure
 
 ```
-hyprland-dotfiles/
+Lazy-UI/
 ├── 🤖 ai_optimization/          # Core AI system
 │   ├── core/                    # AI modules
 │   │   ├── ai_optimizer.py      # Neural network optimization
