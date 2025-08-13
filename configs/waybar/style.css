@@ -1,3 +1,96 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.9);
+    color: #cdd6f4;
+    border-radius: 0;
+}
+
+#workspaces {
+    margin: 0 5px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #a6adc8;
+    background: transparent;
+    border-radius: 5px;
+}
+
+#workspaces button.active {
+    color: #1e1e2e;
+    background: #cba6f7;
+}
+
+#workspaces button:hover {
+    background: rgba(203, 166, 247, 0.2);
+    color: #cdd6f4;
+}
+
+#workspaces button.urgent {
+    background: #f38ba8;
+    color: #1e1e2e;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
+    margin: 0 5px;
+    background: rgba(49, 50, 68, 0.6);
+    border-radius: 5px;
+}
+
+#window {
+    margin: 0 10px;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #f38ba8;
+        color: #1e1e2e;
+    }
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+tooltip {
+    background: rgba(30, 30, 46, 0.95);
+    border: 1px solid #cba6f7;
+    border-radius: 5px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
 /* Enhanced Waybar Styling for Hyprland Dotfiles */
 /* Modern, clean design with system integration */
 

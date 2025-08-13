@@ -38,6 +38,14 @@ A comprehensive, interactive installation script for **Hyprland** on **Arch Linu
 
 ```bash
 # Clone or download the repository
+git clone https://github.com/yourusername/hyprland-project.git
+cd hyprland-project
+
+# Quick setup (minimal installation)
+chmod +x setup.sh
+./setup.sh
+
+# OR Full installation with all features
 chmod +x install.sh
 ./install.sh
 ```
@@ -77,6 +85,24 @@ After installation, configure your dotfiles in:
 ```
 
 ## Usage
+
+### Theme Switcher
+Easily switch between all 20 themes:
+```bash
+./theme-switcher.sh
+```
+
+Or apply a theme directly:
+```bash
+./theme-switcher.sh catppuccin-mocha
+./theme-switcher.sh 1  # Apply by number
+```
+
+### Configuration Verification
+Check if all configuration files are properly installed:
+```bash
+./verify-configs.sh
+```
 
 ### Standard Installation
 1. **Run the installation**:
