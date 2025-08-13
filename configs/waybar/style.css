@@ -1,0 +1,344 @@
+/* Enhanced Waybar Styling for Hyprland Dotfiles */
+/* Modern, clean design with system integration */
+
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: "JetBrainsMono Nerd Font", "Fira Code Nerd Font", monospace;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.95);
+    border-bottom: 2px solid rgba(137, 180, 250, 0.8);
+    color: #cdd6f4;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Tooltip styling */
+tooltip {
+    background-color: rgba(30, 30, 46, 0.98);
+    border: 1px solid rgba(137, 180, 250, 0.5);
+    border-radius: 8px;
+    color: #cdd6f4;
+    padding: 8px;
+    font-size: 12px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+/* Left modules */
+#custom-launcher {
+    color: #89b4fa;
+    background: linear-gradient(45deg, rgba(137, 180, 250, 0.1), rgba(137, 180, 250, 0.05));
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 5px 5px 5px 10px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+#custom-launcher:hover {
+    background: linear-gradient(45deg, rgba(137, 180, 250, 0.2), rgba(137, 180, 250, 0.1));
+    color: #74c7ec;
+    transform: scale(1.05);
+}
+
+#workspaces {
+    background: rgba(49, 50, 68, 0.8);
+    border-radius: 12px;
+    margin: 5px;
+    padding: 2px 8px;
+}
+
+#workspaces button {
+    color: #6c7086;
+    background: transparent;
+    border-radius: 8px;
+    margin: 2px;
+    padding: 4px 8px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.1);
+}
+
+#workspaces button.active {
+    color: #1e1e2e;
+    background: linear-gradient(45deg, #89b4fa, #74c7ec);
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.1);
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+#window {
+    color: #cdd6f4;
+    background: rgba(49, 50, 68, 0.6);
+    border-radius: 12px;
+    margin: 5px;
+    padding: 8px 15px;
+    font-weight: 500;
+}
+
+#custom-gaming-mode {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.1);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 6px 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#custom-gaming-mode.active {
+    color: #1e1e2e;
+    background: linear-gradient(45deg, #a6e3a1, #94e2d5);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+#custom-vpn-status {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.1);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+}
+
+#custom-vpn-status.connected {
+    color: #1e1e2e;
+    background: linear-gradient(45deg, #a6e3a1, #94e2d5);
+}
+
+/* Center modules */
+#clock {
+    color: #cdd6f4;
+    background: linear-gradient(45deg, rgba(137, 180, 250, 0.1), rgba(116, 199, 236, 0.1));
+    border-radius: 15px;
+    margin: 5px 10px;
+    padding: 8px 20px;
+    font-weight: bold;
+    font-size: 15px;
+    border: 1px solid rgba(137, 180, 250, 0.2);
+}
+
+#custom-weather {
+    color: #74c7ec;
+    background: rgba(116, 199, 236, 0.1);
+    border-radius: 12px;
+    margin: 5px;
+    padding: 6px 15px;
+    transition: all 0.3s ease;
+}
+
+/* Right modules */
+#custom-system-health {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 10px;
+    font-weight: bold;
+}
+
+#custom-system-health.warning {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.2);
+}
+
+#custom-system-health.critical {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.2);
+    animation: blink 1s linear infinite;
+}
+
+#custom-audio-profile,
+#custom-theme-switcher,
+#custom-mobile-sync {
+    color: #cba6f7;
+    background: rgba(203, 166, 247, 0.1);
+    border-radius: 8px;
+    margin: 5px 2px;
+    padding: 6px 10px;
+    transition: all 0.3s ease;
+}
+
+#network {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 12px;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.1);
+}
+
+#bluetooth {
+    color: #74c7ec;
+    background: rgba(116, 199, 236, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 12px;
+}
+
+#bluetooth.disabled {
+    color: #6c7086;
+    background: rgba(108, 112, 134, 0.1);
+}
+
+#bluetooth.connected {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.1);
+}
+
+#battery {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 12px;
+}
+
+#battery.charging {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.1);
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.2);
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.2);
+    animation: blink 0.5s linear infinite;
+}
+
+#pulseaudio {
+    color: #f5c2e7;
+    background: rgba(245, 194, 231, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 12px;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+    background: rgba(108, 112, 134, 0.1);
+}
+
+#backlight {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.1);
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 6px 12px;
+}
+
+#custom-power-menu {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.1);
+    border-radius: 12px;
+    margin: 5px 10px 5px 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#custom-power-menu:hover {
+    background: rgba(243, 139, 168, 0.2);
+    color: #eba0ac;
+    transform: scale(1.1);
+}
+
+/* Hover effects for all modules */
+.modules-left > widget > * {
+    transition: all 0.3s ease;
+}
+
+.modules-left > widget > *:hover,
+.modules-center > widget > *:hover,
+.modules-right > widget > *:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for active states */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Custom scrollbar for tooltip */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(30, 30, 46, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(137, 180, 250, 0.5);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(137, 180, 250, 0.8);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1200px) {
+    #custom-weather,
+    #custom-mobile-sync {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    
+    #window {
+        max-width: 200px;
+        font-size: 12px;
+    }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+    window#waybar {
+        background-color: rgba(24, 24, 37, 0.95);
+    }
+    
+    tooltip {
+        background-color: rgba(24, 24, 37, 0.98);
+    }
+}

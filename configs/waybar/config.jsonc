@@ -1,0 +1,213 @@
+{
+    // Enhanced Waybar Configuration for Hyprland Dotfiles
+    // Comprehensive system integration with custom modules
+    
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 40,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window",
+        "custom/gaming-mode",
+        "custom/vpn-status"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "custom/system-health",
+        "custom/audio-profile",
+        "custom/theme-switcher",
+        "custom/mobile-sync",
+        "network",
+        "bluetooth",
+        "battery",
+        "pulseaudio",
+        "backlight",
+        "custom/power-menu"
+    ],
+
+    // Left modules
+    "custom/launcher": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/rofi/launcher.sh",
+        "on-click-right": "~/.config/hypr/scripts/rofi/system-menu.sh"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 50,
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "🌍 $1",
+            "(.*) - Google Chrome": "🌍 $1",
+            "(.*) - VSCode": "💻 $1",
+            "(.*) - Vim": "📝 $1"
+        }
+    },
+
+    "custom/gaming-mode": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/gaming-status.sh",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "~/hyprland-project/scripts/gaming/gaming-mode.sh toggle",
+        "on-click-right": "~/hyprland-project/scripts/gaming/gaming-mode.sh status"
+    },
+
+    "custom/vpn-status": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/vpn-status.sh",
+        "interval": 10,
+        "tooltip": true,
+        "on-click": "~/.config/hypr/scripts/rofi/vpn-menu.sh"
+    },
+
+    // Center modules
+    "clock": {
+        "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a %d %b  %I:%M %p}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+        "on-click-right": "~/.config/hypr/scripts/rofi/calendar.sh"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/weather.sh",
+        "interval": 600,
+        "tooltip": true,
+        "on-click": "~/.config/hypr/scripts/rofi/weather-details.sh"
+    },
+
+    // Right modules
+    "custom/system-health": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/system-health.sh",
+        "interval": 30,
+        "tooltip": true,
+        "on-click": "~/hyprland-project/scripts/utils/system-monitor.sh overview",
+        "on-click-right": "~/hyprland-project/scripts/maintenance/system-maintenance.sh health-check"
+    },
+
+    "custom/audio-profile": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/audio-profile.sh",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "~/.config/hypr/scripts/rofi/audio-menu.sh"
+    },
+
+    "custom/theme-switcher": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/theme-status.sh",
+        "interval": 30,
+        "tooltip": true,
+        "on-click": "~/.config/hypr/scripts/rofi/theme-menu.sh"
+    },
+
+    "custom/mobile-sync": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/waybar/mobile-sync-status.sh",
+        "interval": 60,
+        "tooltip": true,
+        "on-click": "~/.config/hypr/scripts/rofi/mobile-menu.sh"
+    },
+
+    "network": {
+        "tooltip": true,
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "󰈂 Disconnected",
+        "tooltip-format": "Network: {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%",
+        "on-click": "~/hyprland-project/scripts/network/network-manager.sh status",
+        "on-click-right": "~/.config/hypr/scripts/rofi/network-menu.sh"
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format": "Bluetooth: {status}\nConnected devices: {num_connections}",
+        "on-click": "~/hyprland-project/scripts/network/network-manager.sh bluetooth-toggle",
+        "on-click-right": "~/hyprland-project/scripts/network/network-manager.sh bluetooth-status"
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "on-click-right": "~/.config/hypr/scripts/rofi/power-profiles.sh"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": ["", "󰕾", "󰕾", "󰕾", ""],
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "speaker": "",
+            "hdmi": "󰡁"
+        },
+        "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
+        "on-click": "~/hyprland-project/scripts/utils/volume-control.sh toggle",
+        "on-click-right": "~/.config/hypr/scripts/rofi/audio-menu.sh",
+        "scroll-step": 5
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip-format": "Brightness: {percent}%",
+        "on-click-right": "~/hyprland-project/scripts/utils/brightness-control.sh auto",
+        "on-scroll-up": "~/hyprland-project/scripts/utils/brightness-control.sh up 5",
+        "on-scroll-down": "~/hyprland-project/scripts/utils/brightness-control.sh down 5"
+    },
+
+    "custom/power-menu": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/rofi/power-menu.sh",
+        "on-click-right": "~/.config/hypr/scripts/rofi/system-menu.sh"
+    }
+}
